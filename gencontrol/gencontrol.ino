@@ -3,6 +3,8 @@
 #include <Wire.h> 
 #include <RtcDS3231.h> 
 
+// RTC library by Makuna
+
 RtcDS3231<TwoWire> rtc(Wire); 
 
 // initialize the library by associating any needed LCD interface pin
@@ -90,7 +92,7 @@ void setup() {
   RtcDateTime data_compilacao = RtcDateTime(__DATE__, __TIME__);
 
   if (!rtc.IsDateTimeValid()) {
-    printLCD("ATENCAO, verifique", "a bateria do relogio");
+    printLCD("ATENCAO! Verifique", "a bateria do relogio");
     beepBuzzer("wrong");
     delay(1000);
     //rtc.SetDateTime(data_compilacao);
